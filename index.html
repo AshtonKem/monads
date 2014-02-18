@@ -45,16 +45,139 @@
 	</section>
 
 	<section>
-	  <h2>Heads Up</h2>
-	  <p>
-	    reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
-	    support for CSS 3D transforms to see it in its full glory.
-	  </p>
-
+          <h2>
+            Who I am
+          </h2>
+          <p>Pivotal Labs Employee (Tracker)</p>
+          <p>Professional polyglot, hobbyist Clojure/Haskell user</p>
 	  <aside class="notes">
 	    Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
 	  </aside>
 	</section>
+        <section>
+          <section>
+            <h2>30 Second Haskell Tutorial</h2>
+            <p>Haskell is a ML based language</p>
+            <p>It is functional (purely)</p>
+            <p>No objects</p>
+          </section>
+          <section>
+            <h2>Functions</h2>
+            <p>Parenthesis Not Required</p>
+            <p>Functions can be defined infix (2 arguments only) or prefix</p>
+            <p>Symbols can be functions too, like &gt;&gt;= and $</p>
+          </section>
+          <section>
+            <h2>Data Types</h2>
+            <p>Every type has 1 signature, 1 or more constructor</p>
+            <p>Data Bool = True | False</p>
+            <p>Data Maybe a = Nothing | Just a</p>
+          </section>
+          <section>
+            <h2>TypeClasses</h2>
+            <p>A bit like Interfaces</p>
+            <p>Used for type based method dispatch</p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>What Is a Monad?</h2>
+            <p>Mathematical Concept</p>
+            <p>A common way of chaining computations together</p>
+          </section>
+          <section>
+            <h2>The Monad Type</h2>
+            <p>A monad is a data type with the following functions</p>
+            <ul>
+              <li>Return</li>
+              <li>Bind</li>
+            </ul>
+          </section>
+          <section>
+              <h2>Return</h2>
+              <p>Takes a non-monadic value, turns it into one in the simplest way</p>
+          </section>
+          <section>
+              <h2>Bind (&gt;&gt;=)</h2>
+              <p>Accepts two arguments, a monadic value and a function</p>
+              <p>The function must normally accept a non-monadic value, and return a Monad</p>
+              <p>Bind chains them together</p>
+          </section>
+        </section>
+        <section>
+            <section>
+                <h2>Examle Time!</h2>
+            </section>
+            <section>
+              <h2>The Problem With Null</h2>
+              <p>Null values are handled with the Maybe type</p>
+              <p>Compiler requires that null be checked every time we want a maybe value</p>
+              <p>Results in this mess</p>
+              <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0066BB; font-weight: bold">routine</span> <span style="color: #000000; font-weight: bold">=</span> <span style="color: #008800; font-weight: bold">case</span> landLeft <span style="color: #0000DD; font-weight: bold">1</span> (<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">0</span>) <span style="color: #008800; font-weight: bold">of</span>
+    <span style="color: #333399; font-weight: bold">Nothing</span> <span style="color: #000000; font-weight: bold">-&gt;</span> <span style="color: #333399; font-weight: bold">Nothing</span>
+    <span style="color: #333399; font-weight: bold">Just</span> pole1 <span style="color: #000000; font-weight: bold">-&gt;</span> <span style="color: #008800; font-weight: bold">case</span> landRight <span style="color: #0000DD; font-weight: bold">4</span> pole1 <span style="color: #008800; font-weight: bold">of</span>
+        <span style="color: #333399; font-weight: bold">Nothing</span> <span style="color: #000000; font-weight: bold">-&gt;</span> <span style="color: #333399; font-weight: bold">Nothing</span>
+        <span style="color: #333399; font-weight: bold">Just</span> pole2 <span style="color: #000000; font-weight: bold">-&gt;</span> <span style="color: #008800; font-weight: bold">case</span> landLeft <span style="color: #0000DD; font-weight: bold">2</span> pole2 <span style="color: #008800; font-weight: bold">of</span>
+            <span style="color: #333399; font-weight: bold">Nothing</span> <span style="color: #000000; font-weight: bold">-&gt;</span> <span style="color: #333399; font-weight: bold">Nothing</span>
+            <span style="color: #333399; font-weight: bold">Just</span> pole3 <span style="color: #000000; font-weight: bold">-&gt;</span> landLeft <span style="color: #0000DD; font-weight: bold">1</span> pole3
+</pre></div>
+            </section>
+            <section>
+              <h2>The Maybe Monad</h2>
+              <p>Gives us these functions</p>
+              <ul>
+                  <li>Return: wraps a regular value in a Just, to indicate it isn't null</li>
+                  <li>&gt;&gt;= (bind): Performs the null check, and calls the next function</li>
+              </ul>
+              <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0066BB; font-weight: bold">routine</span> <span style="color: #000000; font-weight: bold">=</span> return (<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">0</span>) <span style="color: #333333">&gt;&gt;=</span> landLeft <span style="color: #0000DD; font-weight: bold">1</span> <span style="color: #333333">&gt;&gt;=</span> landRight <span style="color: #0000DD; font-weight: bold">4</span> <span style="color: #333333">&gt;&gt;=</span> landLeft <span style="color: #0000DD; font-weight: bold">2</span> <span style="color: #333333">&gt;&gt;=</span> <span style="color: #333399; font-weight: bold">LandLeft</span> <span style="color: #0000DD; font-weight: bold">1</span>
+</pre></div>
+            </section>
+            <section>
+                <h2>Do Notation</h2>
+                <p>Shorthand for using &gt;&gt;= manually</p>
+                <p>Looks a bit like imperative programming</p>
+                <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0066BB; font-weight: bold">routine</span> <span style="color: #000000; font-weight: bold">=</span> <span style="color: #008800; font-weight: bold">do</span>
+    start <span style="color: #000000; font-weight: bold">&lt;-</span> return (<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">0</span>)
+    first <span style="color: #000000; font-weight: bold">&lt;-</span> landLeft <span style="color: #0000DD; font-weight: bold">2</span> start
+    second <span style="color: #000000; font-weight: bold">&lt;-</span> landRight <span style="color: #0000DD; font-weight: bold">2</span> first
+    landLeft <span style="color: #0000DD; font-weight: bold">1</span> second
+</pre></div>
+
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>But Wait, There's More</h2>
+            </section>
+            <section>
+              <h2>The List Monad</h2>
+              <p>Used for list comprehensions</p>
+            </section>
+            <section>
+              <h2>The State Monad</h2>
+              <p>For chaining stateful computations functionally</p>
+              <p>Works by passing state into and out of fuctions</p>
+              <p>Very testable, since each computation stands alone</p>
+            </section>
+            <section>
+              <h2>The Writer Monad</h2>
+              <p>For logging changes alongside your computation</p>
+              <p>Very helpful for calculating deltas, or logging</p>
+            </section>
+            <section>
+              <h2>The Reader Monad</h2>
+              <p>For passing a shared (immutable) environment into a computation</p>
+              <p>Commonly used for configuration</p>
+            </section>
+        </section>
+        <section>
+          <h2>Okay, But Why Do I Care?</h2>
+          <p>Monad libraries aren't unique to functional languages</p>
+          <p>They are a very good pattern for some types of computation</p>
+          <p>Once understood, they make a really good library interface</p>
+        </section>
+
+
 
 	<!-- Example of nested vertical slides -->
 	<section>
