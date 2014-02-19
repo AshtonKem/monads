@@ -82,7 +82,15 @@
             <h2>TypeClasses</h2>
             <p>A bit like Interfaces</p>
             <p>Used for type based method dispatch</p>
+            <p>Also used to restrict types a function will accept</p>
+            <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">class</span>  <span style="color: #333399; font-weight: bold">Eq</span> a  <span style="color: #008800; font-weight: bold">where</span>
+   (<span style="color: #333333">==</span>), (<span style="color: #333333">/=</span>) <span style="color: #000000; font-weight: bold">::</span> a <span style="color: #000000; font-weight: bold">-&gt;</span> a <span style="color: #000000; font-weight: bold">-&gt;</span> <span style="color: #333399; font-weight: bold">Bool</span>
+   x <span style="color: #333333">/=</span> y     <span style="color: #000000; font-weight: bold">=</span>  not (x <span style="color: #333333">==</span> y)
+   x <span style="color: #333333">==</span> y     <span style="color: #000000; font-weight: bold">=</span>  not (x <span style="color: #333333">/=</span> y)
+</pre></div>
+
           </section>
+
         </section>
         <section>
           <section>
