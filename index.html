@@ -97,6 +97,7 @@
             <h2>What Is a Monad?</h2>
             <p>Mathematical Concept</p>
             <p>A common way of chaining computations together</p>
+            <p>A borrowed term from Philosophy</p>
           </section>
           <section>
             <h2>The Monad Type</h2>
@@ -109,12 +110,14 @@
           <section>
               <h2>Return</h2>
               <p>Takes a non-monadic value, turns it into one in the simplest way</p>
+              <p>Unrelated to the return statement in imperative languages</p>
           </section>
           <section>
               <h2>Bind (&gt;&gt;=)</h2>
               <p>Accepts two arguments, a monadic value and a function</p>
               <p>The function must normally accept a non-monadic value, and return a Monad</p>
               <p>Bind chains them together</p>
+              <p>Internal details of monad may be hidden from caller (IO)</p>
           </section>
         </section>
         <section>
