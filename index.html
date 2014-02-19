@@ -181,6 +181,7 @@
               <p>For chaining stateful computations functionally</p>
               <p>Works by passing state into and out of fuctions</p>
               <p>Very testable, since each computation stands alone</p>
+              <p>Example too in depth for 5 minute talk</p>
             </section>
             <section>
               <h2>The Writer Monad</h2>
@@ -192,12 +193,34 @@
               <p>For passing a shared (immutable) environment into a computation</p>
               <p>Commonly used for configuration</p>
             </section>
+            <section>
+              <h2>The STM Monad</h2>
+              <p>Thread safe mutable storage</p>
+              <p>Database-like transactions for in-memory data</p>
+            </section>
+            <section>
+              <h2>Other uses</h2>
+              <ul>
+                <li>DSLs (HTML and Testing)</li>
+                <li>Parsing</li>
+                <li>Logic &amp; Probability calculations</li>
+                <li>Graphics (See XMonad)</li>
+                <li>Code Generation</li>
+              </ul>
+            </section>
         </section>
         <section>
           <h2>Okay, But Why Do I Care?</h2>
           <p>Monad libraries aren't unique to functional languages</p>
           <p>They are a very good pattern for some types of computation</p>
           <p>Once understood, they make a really good library interface</p>
+          <p>They all follow simple but important rules</p>
+          <p>Easier to analyze and test automatically</p>
+        </section>
+        <section>
+          <h1>Questions?</h1>
+          <p>Code examples borrowed (legally) from Learn You a Haskell</p>
+          <p>www.learnyouahaskell.com</p>
         </section>
       </div>
 
